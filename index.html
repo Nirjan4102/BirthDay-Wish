@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create Birthday Wish</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(120deg, #ffdde1, #c9ffbf);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2rem;
+      color: #ff4081;
+      margin-bottom: 30px;
+    }
+    form {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+    input, textarea, button {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    button {
+      background-color: #ff4081;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #e91e63;
+    }
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🎉 Create Your Birthday Wish 🎉</h1>
+
+<form id="wishForm">
+  <input type="text" id="to" placeholder="Friend's Name" required />
+  <input type="text" id="from" placeholder="Your Name" required />
+  <textarea id="msg" placeholder="Write your birthday message" required></textarea>
+  <input type="file" id="photo" accept="image/*" required />
+  <button type="submit">Create Wish Page</button>
+</form>
+
+<script>
+  const form = document.getElementById("wishForm");
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const to = encodeURIComponent(document.getElementById("to").value.trim());
+    const from = encodeURIComponent(document.getElementById("from").value.trim());
+    const msg = encodeURIComponent(document.getElementById("msg").value.trim());
+    const photoInput = document.getElementById("photo");
+
+    if (photoInput.files.length === 0) {
+      alert("Please select a photo.");
+      return;
+    }
+
+    const imageFile = photoInput.files[0];
+    const formData = new FormData();
+    formData.append("file", imageFile);
+    formData.append("upload_preset", "birthday_upload"); // 🔁 Change to your preset
+    // formData.append("folder", "birthday"); // optional: only if you want to organize into a folder
+
+    try {
+      const res = await fetch("https://api.cloudinary.com/v1_1/djt1yd0te/image/upload", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await res.json();
+
+      if (data.secure_url) {
+        const imgUrl = encodeURIComponent(data.secure_url);
+        const link = `wish.html?to=${to}&from=${from}&msg=${msg}&img=${imgUrl}`;
+        window.location.href = link;
+      } else {
+        alert("Image upload failed. Try again.");
+      }
+    } catch (error) {
+      console.error("Upload error:", error);
+      alert("Image upload failed. Check your internet and try again.");
+    }
+  });
+</script>
+
+<footer>
+  © 2025 <strong>Nirjan Mondal</strong>. All rights reserved.
+</footer>
+
+</body>
+</html>
