@@ -3,27 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Create and send beautiful animated birthday wishes to your friends and family. Free, fun, and personalized birthday wish pages with images and messages." />
-  <meta name="keywords" content="birthday wish website, animation birthday wish, birthday card maker, make birthday card online, happy birthday, birthday generator, birthday greeting site, Nirjan" />
+  <meta name="description" content="Make free animated birthday cards with music and photos. Customize online birthday wish pages and share with your friends instantly." />
+  <meta name="keywords" content="birthday wish website, animation birthday card, online birthday greeting maker, birthday card generator, make birthday wish online, birthday card with photo and music, happy birthday card maker, create birthday animation, Nirjan birthday site" />
   <meta name="author" content="Nirjan Mondal" />
-  
+
   <!-- Open Graph for Facebook -->
-  <meta property="og:title" content="🎉 Create Birthday Wishes Online - Made by Nirjan" />
-  <meta property="og:description" content="Generate personalized birthday wishes with animated effects and share with your friends. 100% free." />
+  <meta property="og:title" content="🎉 Make Animated Birthday Wishes Online - Free Card Creator" />
+  <meta property="og:description" content="Create and send personalized animated birthday cards with photos, music, and message. 100% free!" />
   <meta property="og:image" content="https://nirjan4102.github.io/BirthDay-Wish/assets/birthday-preview.jpg" />
   <meta property="og:url" content="https://nirjan4102.github.io/BirthDay-Wish/" />
   <meta property="og:type" content="website" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="🎉 Birthday Wish Generator | Made by Nirjan" />
-  <meta name="twitter:description" content="Send custom birthday wishes with animation and music. Free and beautiful!" />
+  <meta name="twitter:title" content="🎉 Birthday Card Maker - Animated Birthday Wish Generator" />
+  <meta name="twitter:description" content="Send animated birthday wishes online with your photo and message. Works on mobile and PC!" />
   <meta name="twitter:image" content="https://nirjan4102.github.io/BirthDay-Wish/assets/birthday-preview.jpg" />
 
-  <!-- Google Verification -->
+  <!-- Google Site Verification -->
   <meta name="google-site-verification" content="TC-vIyMagjms77b4qg5TQNoEx_rI7oG3Y4qiTyFFPW8" />
 
-  <title>Create Birthday Wish</title>
+  <title>🎂 Make Animated Birthday Wish Cards Online | Free & Fun</title>
+
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -40,11 +41,6 @@
     h1 {
       font-size: 2rem;
       color: #ff4081;
-      margin-bottom: 10px;
-    }
-    p.tagline {
-      font-size: 1.1rem;
-      color: #444;
       margin-bottom: 30px;
     }
     form {
@@ -72,32 +68,23 @@
     button:hover {
       background-color: #e91e63;
     }
-    section.seo {
-      max-width: 650px;
-      margin-top: 40px;
-      padding: 20px;
-      text-align: left;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    }
-    section.seo h2, section.seo h3 {
-      color: #ff4081;
-    }
     footer {
       text-align: center;
       margin-top: 40px;
       font-size: 0.9rem;
       color: #999;
     }
+    .seo {
+      max-width: 700px;
+      margin-top: 40px;
+      color: #444;
+      font-size: 0.95rem;
+    }
   </style>
 </head>
 <body>
 
 <h1>🎉 Create Your Birthday Wish 🎉</h1>
-<p class="tagline">
-  Create free animated birthday cards with music, balloons, and personalized messages. Just upload a photo and share instantly!
-</p>
 
 <form id="wishForm">
   <input type="text" id="to" placeholder="Friend's Name" required />
@@ -107,27 +94,18 @@
   <button type="submit">Create Wish Page</button>
 </form>
 
-<!-- SEO Keyword Section -->
-<section class="seo">
-  <h2>🎂 Birthday Wish Website with Animation & Music</h2>
-  <p>
-    Looking for a <strong>birthday wish website</strong> where you can create and send animated greetings? 
-    You've found it! This free <strong>birthday card maker</strong> lets you design personalized birthday wishes 
-    with flying balloons, birthday music, cake-cutting animation, sparkles, and your friend's photo. 
-    It's the easiest way to <strong>make birthday cards online</strong> with beautiful effects and real-time typing animations.
-  </p>
-  <h3>✨ What Makes This Birthday Card Generator Special?</h3>
+<!-- SEO Keyword Content -->
+<div class="seo">
+  <h2>🎂 Make Animated Birthday Wish Cards Online</h2>
+  <p>Welcome to the best <strong>online birthday wish website</strong> where you can create and send animated birthday cards with music, photos, and custom messages. No login needed, 100% free and mobile-friendly.</p>
+  <p>This tool helps you <strong>make animated birthday cards online</strong>, generate greeting pages with your own message and photo, and instantly share them with friends and family.</p>
   <ul>
-    <li>100% free and works on all devices (mobile + desktop)</li>
-    <li>Add a personal photo and custom message</li>
-    <li><strong>Animation birthday wish</strong> effects: balloons, confetti, music, sparkles</li>
-    <li>No login required — generate and share instantly</li>
+    <li>Create birthday card with your image and song</li>
+    <li>Best free birthday animation card maker</li>
+    <li>Send birthday greetings from mobile or PC</li>
+    <li>Fast, free and fun birthday wish generator</li>
   </ul>
-  <p>
-    This site is perfect for anyone who wants to surprise their friend, bestie, brother, sister, or loved one with a 
-    <strong>fun and interactive birthday greeting</strong>. Try it today and spread smiles!
-  </p>
-</section>
+</div>
 
 <script>
   const form = document.getElementById("wishForm");
@@ -148,7 +126,7 @@
     const imageFile = photoInput.files[0];
     const formData = new FormData();
     formData.append("file", imageFile);
-    formData.append("upload_preset", "birthday_upload");
+    formData.append("upload_preset", "birthday_upload"); // 🔁 Change to your preset
 
     try {
       const res = await fetch("https://api.cloudinary.com/v1_1/djt1yd0te/image/upload", {
