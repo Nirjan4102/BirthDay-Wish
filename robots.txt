@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nirjan4102.github.io/BirthDay-Wish/sitemap.xml
